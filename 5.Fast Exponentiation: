@@ -1,0 +1,55 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int getExp(int a, int b) {
+
+  if(b==0)
+    return 1;
+
+  //subproblem or recursive call
+  int aage_ka_answer = getExp(a, b-1);
+
+  int answer = a * aage_ka_answer;
+  //is ther any faster way than this ??
+  return answer;
+}
+
+//fast exponentiation
+int exp(int n) {
+
+    if(n==0)
+    return 1;
+
+//odd
+    int chotta_answer = exp(n/2);
+    if(n&1) {
+        return 2*chotta_answer*chotta_answer;
+    }
+    else
+    {
+        //even
+        return chotta_answer*chotta_answer;
+    }
+
+}
+
+int expTwo(int n) {
+    if(n==0)
+    return 1;
+
+    int ans = 2*expTwo(n-1);
+    cout<<" for n "<<n<<" ans "<<ans<<endl;
+    return ans;
+
+}
+
+int main() {
+  
+  //cout<<"Enter the value of 'a' and 'b' "<<endl;
+  int a,b;
+  //cin>>a>>b;
+  cout<<"2 to the power 6 is " << exp(6)<<endl;
+ // cout<<a<<" to the pwer of "<<b<<" is -> "<<getExp(a,b)<<endl;
+
+
+}
